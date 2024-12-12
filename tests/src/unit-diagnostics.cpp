@@ -258,6 +258,8 @@ TEST_CASE("Regression tests for extended diagnostics")
         j.insert(jj.at("child").begin(), jj.at("child").end());
 
         // Here assert is generated when construct new json
-        json k(j);
+        const json k(j);
+
+        CHECK(k.dump() == "{\"prop1\":\"prop1_value\",\"root\":\"root_str\"}");
     }
 }
