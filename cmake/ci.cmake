@@ -1029,6 +1029,14 @@ add_custom_target(ci_test_api_documentation
     COMMENT "Lint the API documentation"
 )
 
+add_custom_target(ci_test_build_documentation
+    COMMAND ${Python3_EXECUTABLE} -mvenv venv
+    COMMAND venv/bin/pip3 install -r requirements.txt
+    COMMAND venv/bin/mkdocs build
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/docs/mkdocs
+    COMMENT "Build the documentation"
+)
+
 ###############################################################################
 # Clean up all generated files.
 ###############################################################################
